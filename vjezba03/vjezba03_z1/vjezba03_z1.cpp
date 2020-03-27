@@ -5,8 +5,8 @@
 using namespace std;
 
 vector<int> create_vector();
-void sum_elements(vector<int>, vector<int>&);
-void print_min_max(vector<int>);
+void sum_elements(const vector<int>, vector<int>&);
+void print_min_max(const vector<int>);
 
 template<typename S, typename T>
 void print(S str, T cont){
@@ -20,7 +20,6 @@ void print(S str, T cont){
 int main()
 {
 	vector<int> vect = create_vector(), sumVect;
-
 	print("Vector: ", vect);
 	
 	sum_elements(vect, sumVect);
@@ -52,9 +51,9 @@ vector<int> create_vector()
 	return v;
 }
 
-void sum_elements(vector<int> vect, vector<int>& sumVect)
+void sum_elements(const vector<int> vect, vector<int>& sumVect)
 {
-	vector<int>::iterator it = vect.begin(), it2 = vect.end() - 1;
+	vector<int>::const_iterator it = vect.begin(), it2 = vect.end() - 1;
 
 	while (it < it2 && it != it2) {
 		sumVect.push_back((*it)+(*it2));
@@ -63,10 +62,14 @@ void sum_elements(vector<int> vect, vector<int>& sumVect)
 	}
 }
 
-void print_min_max(vector<int> vect)
+void print_min_max(const vector<int> vect)
 {
-	sort(vect.begin(), vect.end());
+	vector<int> temVect;
+	
+	temVect.assign(vect.begin(), vect.end());
 
-	cout << endl << "Min. element: " << vect.front() << endl;
-	cout << "Max. element: " << vect.back() << endl;
+	sort(temVect.begin(), temVect.end());
+
+	cout << endl << "Min. element: " << temVect.front() << endl;
+	cout << "Max. element: " << temVect.back() << endl;
 }

@@ -9,12 +9,12 @@ using namespace std;
 void create_vector(vector<string>&);
 void modify_sentence(string&);
 string modify_word(string);
-bool is_vowel(char);
-int count_consonants(string);
-bool check_punctuation(char);
+bool is_vowel(const char);
+int count_consonants(const string);
+bool check_punctuation(const char);
 
 template<typename S, typename V>
-void print(S str, V var) {
+void print(const S str, const V var) {
 	cout << str << var << endl;
 }
 
@@ -76,6 +76,7 @@ void modify_sentence(string& sVect)
 string modify_word(string word)
 {
 	string punct = "";
+	const string vowelEnd = "hay", consEnd = "ay"; 
 
 	while (check_punctuation(word.back()) == true) {
 		punct += word.back();
@@ -84,32 +85,32 @@ string modify_word(string word)
 	}
 
 	if (is_vowel(tolower(word.front()))) {
-		return word += (punct.empty()) ?  "hay "  : "hay" +  punct + " ";
+		return word += (punct.empty()) ? vowelEnd + " "  : vowelEnd +  punct + " ";  // In case there is punctuation in a word
 	}
 	
-	int len = count_consonants(word);
-	string fPart = word.substr(0, len);
+	int fronConsLen = count_consonants(word);
+	string fPart = word.substr(0, fronConsLen);
 
-	word.erase(0, len);
+	word.erase(0, fronConsLen);
 
-	return word += (punct.empty()) ?  fPart + "ay " : fPart += "ay" + punct + " ";
+	return word += (punct.empty()) ?  fPart + consEnd + " " : fPart += consEnd + punct + " ";
 }
 
-bool is_vowel(char c)
+bool is_vowel(const char c)
 {
 	return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-int count_consonants(string word)
+int count_consonants(const string word)
 {
 	int cnt = 1;  // We already know 1st char is consonant
 
-	while (is_vowel(tolower(word[cnt])) == false) { cnt++; }
+	while (is_vowel(tolower(word[cnt])) == false) { cnt++; } // Increment untill vowel
 	
 	return cnt;
 }
 
-bool check_punctuation(char c)
+bool check_punctuation(const char c)
 {
 	return !isalnum(c);
 }

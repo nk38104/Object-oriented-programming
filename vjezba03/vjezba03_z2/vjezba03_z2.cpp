@@ -10,14 +10,15 @@ using namespace std;
 string reverse_string(string str);
 
 template<typename S, typename T>
-void print(S str, T val) {
+void print(const S str, const T val) {
 	cout << str << val << endl;
 }
 
 int main()
 {
-	/*string str = "Is string this reversed.";*/
-	string str = "S";
+	string str = "Is string this reversed.";
+	/*string str = "Is string this, reversed.";*/
+	/*string str = "S";*/
 
 	print("Not Yoda: ", str);
 

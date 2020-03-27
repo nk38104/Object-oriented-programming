@@ -7,7 +7,7 @@ using namespace std;
 string longest_substrings(const string, const string);
 
 template<typename S, typename T>
-void print(S str, T var) {
+void print(const S str, const T var) {
 	cout << str << var << endl;
 }
 

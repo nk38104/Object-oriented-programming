@@ -6,10 +6,10 @@ using namespace std;
 
 #define ERROR "String is empty."
 
-string erase_all_substrings(string, string);
+string erase_all_substrings(const string, const string);
 
 template<typename S, typename T>
-void print(S str,T val) {
+void print(const S str, const T val) {
 	cout << str << val << endl;
 }
 
@@ -33,20 +33,22 @@ int main()
 	return 0;
 }
 
-string erase_all_substrings(string str, string subStr)
+string  erase_all_substrings(const string str, const string subStr)
 {
 	if (str.empty()) {
 		return ERROR;
 	}
+
 	if (subStr.empty()) {
 		return str;
 	}
 
-	string temp = subStr;
+	string newStr = str;
 	int pos = string::npos;
 
-	while ((pos = str.find(subStr)) != string::npos) {
-		str.erase(pos, subStr.length());
+	while ((pos = newStr.find(subStr)) != string::npos) {
+		newStr.erase(pos, subStr.length());
 	}
-	return temp;
+
+	return newStr;
 }

@@ -8,7 +8,7 @@ void create_list(list<int>&);
 int modify_list(list<int>&);
 
 template<typename S, typename T>
-void print(S str, T cont) {
+void print(const S str, const T cont) {
 	cout << str;
 	for (auto i : cont) {
 		cout << i << " ";
@@ -71,7 +71,6 @@ int modify_list(list<int>& uList)
 			uList.insert(it, 1);
 			it--;
 			continue;
-
 		}
 	}
 	list<int> reverseList(uList);
