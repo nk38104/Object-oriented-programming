@@ -28,5 +28,6 @@ public:
 	Money& operator--();
 	Money operator--(int);
 
+	operator double() const;
 };
 

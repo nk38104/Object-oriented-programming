@@ -80,3 +80,6 @@ Money Money::operator--(int) {
 	return temp;
 }
 
+Money::operator double() const {
+	return double(this->kuna) + double(this->lipa) / 100;
+};
