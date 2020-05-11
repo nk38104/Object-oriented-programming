@@ -13,9 +13,5 @@ int main() {
 
 	cout << "Receit total: " << receit << endl;
 
-	double total = receit;
-
-	cout << "Receit conversion to double: " << total << endl;
-
 	return 0;
 }
