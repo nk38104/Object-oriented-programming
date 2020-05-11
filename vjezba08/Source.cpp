@@ -11,11 +11,10 @@ int main() {
 	// Add another item
 	receipt += babic;
 
-	cout << "Receit total: " << receipt << endl;
+	cout << "Bill total: " << receipt << endl;
 
 	double total = receipt;
-	cout << "Receit conversion to double: " << total << endl;
-
+	cout << "Bill conversion to double: " << total << endl;
 
 	return 0;
 }
