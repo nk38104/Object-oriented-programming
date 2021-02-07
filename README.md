@@ -1,6 +1,6 @@
 # Object-oriented-programming
 
-These are my assignments for my college class Object Oriented Programming.
+These are my assignments for my university class Object Oriented Programming.
 
 Learned skill/topics in class:
 
